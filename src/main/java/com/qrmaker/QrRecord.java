@@ -1,7 +1,6 @@
 package com.qrmaker;
 
 import java.util.UUID;
-
 public class QrRecord {
     private UUID id;
     private String originalUrl;

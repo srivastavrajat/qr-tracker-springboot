@@ -1,9 +1,16 @@
 package com.qrmaker;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
-
+@Entity
 public class ScanLog {
+    public ScanLog() {
+    }
+
+    @Id
     private UUID qrId;
     private String ip;
     private String userAgent;
