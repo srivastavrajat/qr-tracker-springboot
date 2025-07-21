@@ -6,7 +6,6 @@ import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
-
 import java.util.UUID;
 
 @RestController
@@ -18,7 +17,8 @@ public class QrController {
     @PostMapping("/generate")
     public ResponseEntity<byte[]> generate(@RequestParam String link) throws Exception {
         UUID id = qrService.save(link);
-        byte[] qr = qrService.generateQR("http://localhost:8080/track/" + id);
+        String baseUrl = "https://qr-tracker-springboot.onrender.com";
+        byte[] qr = qrService.generateQR(baseUrl + "/track/" + id);
         return ResponseEntity.ok().contentType(MediaType.IMAGE_PNG).body(qr);
     }
 
